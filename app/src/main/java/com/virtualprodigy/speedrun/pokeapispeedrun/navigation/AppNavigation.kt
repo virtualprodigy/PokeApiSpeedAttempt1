@@ -9,6 +9,7 @@ import androidx.navigation.navArgument
 import com.virtualprodigy.speedrun.pokeapispeedrun.models.NavigationScreenEnums
 import com.virtualprodigy.speedrun.pokeapispeedrun.screens.PokemonDetails
 import com.virtualprodigy.speedrun.pokeapispeedrun.screens.PokemonList
+import com.virtualprodigy.speedrun.pokeapispeedrun.screens.pokemonDetails.PokemonDetailsViewModel
 import com.virtualprodigy.speedrun.pokeapispeedrun.screens.pokemonlist.PokemonListViewModel
 
 val NAV_ARGUMENT_POKEMON_ID = "pokemonId"
@@ -32,7 +33,8 @@ fun AppNavigation() {
             )
         ) { navBackStack ->
             navBackStack.arguments?.getString(NAV_ARGUMENT_POKEMON_ID)?.let { id ->
-                PokemonDetails(id)
+                val viewModel = PokemonDetailsViewModel()
+                PokemonDetails(id, viewModel)
             }
 
         }
